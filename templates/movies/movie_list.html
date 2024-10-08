@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<!-- <h1>--- Movies List - Home Page ---</h1> -->
+<!--<div class="movies">-->
+<!--    {% for movie in movies %}-->
+<!--    <div class="movie">-->
+        <a class="framed-image" href="{% url 'movies:detail' slug=movie.slug %}"><img src="{{ movie.thumb.url }}" width="200" ></a>
+<!--        <p>{{ movie.description}}</p>-->
+<!--        <p>{{ movie.information}}</p>-->
+<!--        <p>{{ movie.date}}</p>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+<!--</div>-->
+<div class="center-text">
+        All Rights Reserved ® 2024 - Ahmad Omari
+    </div>
+<!-- <h1> class="center-text" </h1> -->
+{% endblock %}

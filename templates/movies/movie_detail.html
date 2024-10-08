@@ -1,0 +1,51 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+{% load static %}
+<img src="{% static 'MovieDetail.png' %}" width="400">
+<!-- <h1>--- Movie Detail --------------</h1> -->
+<div class="movie-detail">
+    <div class="movie">
+        <img src="{{ movie.thumb.url }}" width="400">
+        <h2>{{ movie.title }}</h2>
+        <p>{{ movie.description}}</p>
+        <p>{{ movie.information}}</p>
+        <p>{{ movie.date}}</p>
+        <h3>Users Comments:</h3>
+		<p>{{ movie.comment}}</p>
+        <ul id="comment-list" class="comment-list"></ul>
+            <!-- <input type="submit" value="comment"> -->  
+            <!-- <button type="submit">Comment</button> -->
+            <div class="comment-section">
+                <h3>Leave a Comment</h3>
+                
+                <div class="comment-form">
+                    <textarea id="comment-input" placeholder="Write your comment here..."></textarea>
+                    <button1 onclick="addComment()">Comment</button1>
+                </div>
+            
+                <!-- <ul id="comment-list" class="comment-list"></ul> -->
+            </div>
+            
+            <script>
+                function addComment() {
+                    var commentInput = document.getElementById('comment-input');
+                    var commentText = commentInput.value;
+            
+                    if (commentText.trim() !== "") {
+                        var commentList = document.getElementById('comment-list');
+                        
+                        var commentItem = document.createElement('li');
+                        commentItem.className = 'comment';
+                        commentItem.textContent = commentText;
+            
+                        commentList.appendChild(commentItem);          
+                        commentInput.value = "";
+                    } else {
+                        alert('Please write a comment before submitting.');
+                    }
+                }
+            </script>
+        </form>
+    </div>
+</div>
+{% endblock %}
